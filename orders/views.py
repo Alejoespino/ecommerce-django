@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from carts.models import CartItem
-""" from .forms import OrderForm """
+from .forms import OrderForm
 from .models import Order
-import datetime
+import datetime 
 # Create your views here.
 
 def place_order(request,total=0, quantity=0):  
