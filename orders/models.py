@@ -50,18 +50,22 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
 
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+   
+   
+    def  full_addres(self):
+         return f'{self.addres_line_1} {self.addres_line_2}'
 
     def __str__(self):
-        return self.user.first_name
+        return self.first_name
 
 class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE, blank=True, null=True )
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     product = models.ForeignKey(Product , on_delete=models.CASCADE)
-    variation = models.ForeignKey(Variation, on_delete =models.CASCADE)
-    color = models.CharField(max_length=50)
-    size = models.CharField(max_length=50)
+    variation = models.ManyToManyField(Variation, blank=True)
     quantity = models.IntegerField()
     product_price = models.FloatField()
     ordered = models.BooleanField(default= False)

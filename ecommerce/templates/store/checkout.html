@@ -16,8 +16,10 @@
     
             <div class='card-body`'>
                 <h4 class='card-title mb-4'>Direccion de Facturacion</h4>
-                <form action="{%url 'place_order'%}" method='post'>
+                <form action="{% url 'place_order' %}" method='post'>
                     {%csrf_token%}
+
+                    {{form.errors}}
                     <div class='form-row'>
                             <div class='col form-group'>
                                 <label for="">Nombre</label>
@@ -39,7 +41,7 @@
                         </div>
                         <div class='col form-group'>
                             <label for="">Telefono</label>
-                            <input type="text" name='phone_number' class='form-control'>
+                            <input type="text" name='phone' class='form-control'>
 
                         </div>
                 </div>
@@ -49,12 +51,12 @@
                 <div class='form-row'>
                     <div class='col form-group'>
                         <label for="">Direccion</label>
-                        <input type="text" name='adres_line_1' class='form-control'>
+                        <input type="text" name='addres_line_1' class='form-control'>
 
                     </div>
                     <div class='col form-group'>
                         <label for="">Detalles direccion</label>
-                        <input type="text" name='adres_line_2' class='form-control'>
+                        <input type="text" name='addres_line_2' class='form-control'>
 
                     </div>
             </div>

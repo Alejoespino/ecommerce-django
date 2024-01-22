@@ -31,4 +31,4 @@ class RegistrationForm(forms.ModelForm):
         if password != confirm_password:
             raise forms.ValidationError(
                 'El password no coincide!'
-            )   
+            )
