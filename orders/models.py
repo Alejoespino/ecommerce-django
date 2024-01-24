@@ -36,8 +36,8 @@ class Order(models.Model):
     last_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
-    addres_line_1 = models.CharField(max_length=100)
-    addres_line_2 = models.CharField(max_length=100)
+    address_line_1 = models.CharField(max_length=100)
+    address_line_2 = models.CharField(max_length=100)
     state = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -55,7 +55,7 @@ class Order(models.Model):
    
    
     def  full_addres(self):
-         return f'{self.addres_line_1} {self.addres_line_2}'
+         return f'{self.address_line_1} {self.address_line_2}'
 
     def __str__(self):
         return self.first_name
